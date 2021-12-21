@@ -34,6 +34,9 @@ def func():
 
             if "(වීඩියෝ)" in hed:
                 hed = hed.replace("(වීඩියෝ)", "")
+                
+            if "(ඡායාරූප)" in hed:
+                hed = hed.replace("(ඡායාරූප)", "")
 
             cap = f"📮 <b>{hed}</b>"
 
