@@ -35,13 +35,13 @@ def func():
             if "(වීඩියෝ)" in hed:
                 hed = hed.replace("(වීඩියෝ)", "")
 
-            cap = f"📰 {hed}"
+            cap = f"📮 <b>{hed}</b>"
 
-            det = f"✍️ {details} \n{tim} \n@JaguarNews 🇱🇰"
+            det = f"✍️ {details} \n{tim} \n<b>@JaguarNews</b> 🇱🇰"
         
-            tg1 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto?chat_id=-1001530519480&photo={thumburl}&caption={cap}"
+            tg1 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto?chat_id=-1001530519480&photo={thumburl}&caption={cap}&parse_mode=html"
 
-            tg2 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id=-1001530519480&text={det}"
+            tg2 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id=-1001530519480&text={det}&parse_mode=html"
 
             requests.get(tg1)
             requests.get(tg2)
