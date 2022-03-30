@@ -36,7 +36,7 @@ def func():
             if "(ඡායාරූප)" in hed:
                 hed = hed.replace("(ඡායාරූප)", "")
 
-            cap = f"📮 <b>{hed}</b> \n\n✍️ {details} \n\n{tim} \n<b>@Hiru_News</b> 🇱🇰"
+            cap = f"📮 <b>{hed}</b> \n\n✍️ {details} \n{tim} \n<b>@Hiru_News</b> 🇱🇰"
         
             tg1 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto?chat_id=-1001530519480&photo={thumburl}&caption={cap}&parse_mode=html"
 
