@@ -4,8 +4,7 @@ import schedule
 import requests
 from bs4 import BeautifulSoup
 
-BOT_TOKEN = "2048328361:AAFNNLD7e_ht6pEMCOJyyK2_rMKJNAGaCf0"
-
+BOT_TOKEN = "2048328361:AAECRJfWSR3q3nUq_8eXmmAGytv5D2aY5as"
 
 def func():
     try:
@@ -28,9 +27,8 @@ def func():
 
             details = soup2.select('.main-article-section')[0].text
 
-            hed = head.lstrip()
-            details = details.rstrip()
-            details = details.lstrip()
+            hed = head.strip()
+            details = details.strip()
 
             if "(වීඩියෝ)" in hed:
                 hed = hed.replace("(වීඩියෝ)", "")
@@ -38,16 +36,11 @@ def func():
             if "(ඡායාරූප)" in hed:
                 hed = hed.replace("(ඡායාරූප)", "")
 
-            cap = f"📮 <b>{hed}</b>"
-
-            det = f"✍️ {details} \n{tim} \n<b>@Hiru_News</b> 🇱🇰"
+            cap = f"📮 <b>{hed}</b> \n\n✍️ {details} \n\n{tim} \n<b>@Hiru_News</b> 🇱🇰"
         
             tg1 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto?chat_id=-1001530519480&photo={thumburl}&caption={cap}&parse_mode=html"
 
-            tg2 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id=-1001530519480&text={det}&parse_mode=html"
-
             requests.get(tg1)
-            requests.get(tg2)
 
             with open('./text.txt', 'w') as f:
                 f.write(thumburl)
@@ -60,4 +53,4 @@ schedule.every(2).minutes.do(func)
 while True:
     schedule.run_pending()
     time.sleep(1)
-
+    
