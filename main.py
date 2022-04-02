@@ -4,7 +4,7 @@ import schedule
 import requests
 from bs4 import BeautifulSoup
 
-BOT_TOKEN = os.environ["BOT_TOKEN"]
+BOT_TOKEN = "2048328361:AAEG-auqGkdaQkvwEQteNSPHnv560ok3qBs"
 
 def func():
     try:
