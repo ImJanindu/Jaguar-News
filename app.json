@@ -1,0 +1,10 @@
+{
+    "name": "News Bot",
+    "description": "Telegram hiru news bot",
+    "repository": "https://github.com/imjanindu/Jaguar-News",
+    "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
