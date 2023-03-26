@@ -4,7 +4,7 @@ import schedule
 import requests
 from bs4 import BeautifulSoup
 
-BOT_TOKEN = "2048328361:AAG3B_Mje8qRYzJOMX53HjnTVAWqBzpHYts"
+BOT_TOKEN = "5689146370:AAGEbwAuJ6kl-zvSoPguaSqpCGzjreHCA4s"
 
 def func():
     try:
@@ -25,18 +25,18 @@ def func():
             page2 = requests.get(headurl)
             soup2 = BeautifulSoup(page2.text, "html.parser")
 
-            details = soup2.select('.main-article-section')[0].text
+            details = soup2.select('#article-phara')[0].text
 
             hed = head.strip()
             details = details.strip()
 
             if "(වීඩියෝ)" in hed:
                 hed = hed.replace("(වීඩියෝ)", "")
-                
+
             if "(ඡායාරූප)" in hed:
                 hed = hed.replace("(ඡායාරූප)", "")
 
-            cap = f"📮 <b>{hed}</b> \n\n✍️ {details} \n{tim} \n<b>@Hiru_News</b> 🇱🇰"
+            cap = f"📮 <b>{hed}</b> \n\n✍️ {details} \n\n📅 {tim} \n\n🇱🇰 Powered by hirunews.lk"
         
             tg1 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto?chat_id=-1001530519480&photo={thumburl}&caption={cap}&parse_mode=html"
 
