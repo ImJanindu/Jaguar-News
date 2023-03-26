@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 
 BOT_TOKEN = "5689146370:AAGEbwAuJ6kl-zvSoPguaSqpCGzjreHCA4s"
 
+db = ["lel"]
+
 def func():
     try:
         URL = "https://www.hirunews.lk/local-news.php?pageID=1"
@@ -16,9 +18,9 @@ def func():
         headurl = soup.select('.all-section-tittle')[0].find('a').get('href')
         thumburl = soup.select('.sc-image')[0].find('img').get('src')
         tim = soup.select('.middle-tittle-time')[0].text
+        tim = tim.strip()
 
-        lel = open("./text.txt","r+")
-        check = lel.readline()
+        check = db[0]
 
         if check != thumburl:
 
@@ -36,19 +38,23 @@ def func():
             if "(ඡායාරූප)" in hed:
                 hed = hed.replace("(ඡායාරූප)", "")
 
-            cap = f"📮 <b>{hed}</b> \n\n✍️ {details} \n\n📅 {tim} \n\n🇱🇰 Powered by hirunews.lk"
-        
-            tg1 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto?chat_id=-1001530519480&photo={thumburl}&caption={cap}&parse_mode=html"
+            cap1 = f"📮 <b>{hed}</b>"
+            cap2 = f"✍️ {details} \n\n📅 {tim} \n\n🇱🇰 Powered by hirunews.lk"
+
+            tg1 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto?chat_id=-1001530519480&photo={thumburl}&caption={cap1}&parse_mode=html"
+            tg2 = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage?chat_id=-1001530519480&text={cap2}&parse_mode=html"
 
             requests.get(tg1)
+            requests.get(tg2)
 
-            with open('./text.txt', 'w') as f:
-                f.write(thumburl)
+            db.clear()
+            db.append(thumburl)
 
-    except:
-        pass
+    except Exception as e:
+            print(e)
+            pass
 
-schedule.every(2).minutes.do(func)
+schedule.every(3).minutes.do(func)
   
 while True:
     schedule.run_pending()
