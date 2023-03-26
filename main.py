@@ -6,8 +6,6 @@ from bs4 import BeautifulSoup
 
 BOT_TOKEN = "5689146370:AAGEbwAuJ6kl-zvSoPguaSqpCGzjreHCA4s"
 
-db = ["lel"]
-
 def func():
     try:
         URL = "https://www.hirunews.lk/local-news.php?pageID=1"
@@ -20,8 +18,9 @@ def func():
         tim = soup.select('.middle-tittle-time')[0].text
         tim = tim.strip()
 
-        check = db[0]
-
+        lel = open("./text.txt","r+")
+        check = lel.readline()
+        
         if check != thumburl:
 
             page2 = requests.get(headurl)
@@ -47,8 +46,8 @@ def func():
             requests.get(tg1)
             requests.get(tg2)
 
-            db.clear()
-            db.append(thumburl)
+            with open('./text.txt', 'w') as f:
+                f.write(thumburl)
 
     except Exception as e:
             print(e)
