@@ -53,7 +53,7 @@ def func():
             print(e)
             pass
 
-schedule.every(1).minutes.do(func)
+schedule.every(3).minutes.do(func)
   
 while True:
     schedule.run_pending()
