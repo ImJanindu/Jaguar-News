@@ -4,7 +4,7 @@ import schedule
 import requests
 from bs4 import BeautifulSoup
 
-BOT_TOKEN = "5689146370:AAGEbwAuJ6kl-zvSoPguaSqpCGzjreHCA4s"
+BOT_TOKEN = "6095219540:AAGTWLdwZNxxpDukgLrTI2z748IXBMY9H6s"
 
 def func():
     try:
@@ -26,7 +26,7 @@ def func():
             page2 = requests.get(headurl)
             soup2 = BeautifulSoup(page2.text, "html.parser")
 
-            details = soup2.select('#article-phara')[0].text
+            details = soup2.select('#article-phara2')[0].text
 
             hed = head.strip()
             details = details.strip()
@@ -53,9 +53,8 @@ def func():
             print(e)
             pass
 
-schedule.every(3).minutes.do(func)
+schedule.every(1).minutes.do(func)
   
 while True:
     schedule.run_pending()
     time.sleep(1)
-    
