@@ -6,10 +6,7 @@ from bs4 import BeautifulSoup
 
 BOT_TOKEN = "6095219540:AAGTWLdwZNxxpDukgLrTI2z748IXBMY9H6s"
 
-check = ""
-
 def func():
-    global check
     try:
         URL = "https://www.hirunews.lk/local-news.php?pageID=1"
         page = requests.get(URL)
@@ -20,6 +17,9 @@ def func():
         thumburl = soup.select('.sc-image')[0].find('img').get('src')
         tim = soup.select('.middle-tittle-time')[0].text
         tim = tim.strip()
+
+        lel = open("./text.txt","r+")
+        check = lel.readline()
         
         if check != thumburl:
 
@@ -46,7 +46,8 @@ def func():
             requests.get(tg1)
             requests.get(tg2)
 
-            check = thumburl
+            with open('./text.txt', 'w') as f:
+                f.write(thumburl)
 
     except Exception as e:
             print(e)
