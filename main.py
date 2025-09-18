@@ -4,7 +4,7 @@ import schedule
 import requests
 from bs4 import BeautifulSoup
 
-BOT_TOKEN = "6095219540:AAGTWLdwZNxxpDukgLrTI2z748IXBMY9H6s"
+BOT_TOKEN = "" # Add telegram bot token here
 
 def func():
     try:
@@ -58,3 +58,4 @@ schedule.every(3).minutes.do(func)
 while True:
     schedule.run_pending()
     time.sleep(1)
+
