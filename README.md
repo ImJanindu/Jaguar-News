@@ -1,4 +1,4 @@
-# 📰 Jaguar News Bot
+# 📰 Jaguar News Bot - Real-time Sinhala News
 
 A Telegram bot that scrapes the latest news from **hirunews.lk** in real time and posts updates to the Telegram channels where the bot is added.
 
